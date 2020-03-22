@@ -81,10 +81,10 @@ func calltnt() PaxResponse {
 }
 
 func calldb(PaxResponse PaxResponse) {
-	psqlInfo := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?tls=skip-verify&autocommit=true",
+	sqlInfo := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?tls=skip-verify&autocommit=true",
 		user, password, host, port, dbname)
 
-	db, err := sql.Open("mysql", psqlInfo)
+	db, err := sql.Open("mysql", sqlInfo)
 	if err != nil {
 		log.Println(err)
 	}
